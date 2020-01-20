@@ -90,7 +90,7 @@ git push -u origin --all
 
 ![sync changes](doc/sync.png)
 
-# Scenario 2 : Clone existing repo and change origin
+# Scenario 2 : Clone existing repo and build a pipeline in Azure DevOps
 
 **NOTE** : Don't forget to change your current working directory before running commands !
 
