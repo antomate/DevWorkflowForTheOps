@@ -1,0 +1,46 @@
+pool:
+  name: Azure Pipelines
+  vmImage: vs2017-win2016
+
+name: $(MajorVersion).$(MinorVersion).$(PatchVersion)-$(Date:MMdd).$(Rev:rrr)-$(Build.Reason)
+resources:
+- repo: self
+
+variables:
+  majorversion: 1
+  minorversion: 0
+  patchversion: 0
+  artifactName: 'LucBessonScriptGenerator'
+  scriptPath: 'scripts'
+  testPath: 'tests'
+
+trigger:
+  branches:
+    include:
+    - master
+
+steps:
+- task: PowerShell@2
+  displayName: '[UnitTest] Check json templates'
+  inputs:
+    targetType: filePath
+    filePath: './$(testPath)\test-JsonConfig.ps1'
+    arguments: '-path "$(Build.Repository.LocalPath)\$(scriptPath)"'
+
+- task: PowerShell@2
+  displayName: '[UnitTest] Check PowerShell scripts'
+  inputs:
+   targetType: filePath
+   filePath: './$(testPath)\test-PwshScripts.ps1'
+   arguments: '-path "$(Build.Repository.LocalPath)\$(scriptPath)"'
+
+- task: CopyFiles@2
+  displayName: 'Copy scipts to staging'
+  inputs:
+    SourceFolder: '$(scriptPath)'
+    TargetFolder: '$(build.artifactstagingdirectory)\$(scriptPath)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    ArtifactName: '$(artifactName)'

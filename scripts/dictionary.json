@@ -1,0 +1,46 @@
+{
+    "hero": [
+        "John Maclane",
+        "Luke Skywalker",
+        "The goonies",
+        "Casey Ryback",
+        "Bruce Lee",
+        "Spok",
+        "Bryan"
+    ],
+    "action": [
+        "kill",
+        "fuck",
+        "touch gently",
+        "massage",
+        "shoot",
+        "slap"
+    ],
+    "foe": [
+        "the chinese cook",
+        "Hans Gruber",
+        "Darth Vador",
+        "Strannix",
+        "Khan",
+        "Sinoc"
+    ],
+    "object": [
+        "knife",
+        "sausage",
+        "banana",
+        "light saber",
+        "dildo",
+        "pen",
+        "blaster"
+    ],
+    "place": [
+        "the garage",
+        "the mercedes",
+        "the tower",
+        "the USS Missoury",
+        "the ISS Enterprise",
+        "the kitchen",
+        "the Millenium Falcon",
+        "the cave"
+    ]
+}
