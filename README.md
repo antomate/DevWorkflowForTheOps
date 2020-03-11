@@ -5,6 +5,8 @@ This repository contains instructions and assets to perform the coding dojo "Dev
 
 This coding dojo will involved the use of VSCode, Git, Azure DevOps, PowerShell and can either be perfomed on a Windows or a Linux Box.
 
+![dev workflow](doc/devWorkflow.png)
+
 ## Requirements :
 - [Windows] Windows PowerShell 5.x or later and/or PowerShell 6.x or later
 - [Linux] PowerShell 6.x or later
@@ -18,6 +20,7 @@ This coding dojo will involved the use of VSCode, Git, Azure DevOps, PowerShell 
 - *Install VSCode* : choco install vscode --params "/NoDesktopIcon"
 
 **NOTES** : 
+- When chevrons appear in the instructions below, replace in URLs *<devOpsOrg>* and *<devOpsRepo>* by the DevOps organization and the DevOps git repo on which you've been granted access.
 - When chevrons appear in the instructions below, replace the *< XX >* by the 2 digit index assigned to you by the instructor.
 - *[CMD]* indicates tasks to be to done in PowerShell and *[GUI]* indicates tasks to be performed using graphical interfaces.
 
@@ -66,7 +69,7 @@ git commit -m "Adding content to script"
 
 ### 4. [GUI] Prepare Azure DevOps to upload your work to a new hosted Git repo (origin)
 
-- Create a new **EMPTY** (untick "Add a README") repo named *init< XX >* in the dojo project https://dev.azure.com/infra-hub/_git/CodingDojo
+- Create a new **EMPTY** (untick "Add a README") repo named *init< XX >* in the dojo project https://dev.azure.com/<devOpsOrg>/_git/<devOpsRepo>
 
 ![new repo](doc/newRepo1.png)
 
@@ -82,7 +85,7 @@ git commit -m "Adding content to script"
 
 ```
 git config --global credential.helper store
-git remote add origin https://infra-hub@dev.azure.com/infra-hub/CodingDojo/_git/init<XX>
+git remote add origin ttps://<devOpsOrg>@dev.azure.com/<devOpsOrg>/<devOpsRepo>/_git/init<XX>
 git push -u origin --all
 ```
 
@@ -107,13 +110,13 @@ Set-Location -Path DevWorkflowForTheOps
 
 ### 2. [GUI] Prepare Azure DevOps to upload your work to a new hosted Git repo (origin)
 
-- Create a new **EMPTY** (untick "Add a README") repo named *"DevWorkflowForTheOps< XX >"* in the dojo project https://dev.azure.com/infra-hub/_git/CodingDojo
+- Create a new **EMPTY** (untick "Add a README") repo named *"DevWorkflowForTheOps< XX >"* in the dojo project https://dev.azure.com/<devOpsOrg>/_git/<devOpsRepo>
 - Create a new **PAT** (Personal Access Token) with permissions : *Code* (Read & write) + *Packaging* (Read)
 
 ### 3. [CMD] Change the origin to the new repo
 
 ```
-git remote set-url origin https://infra-hub@dev.azure.com/infra-hub/CodingDojo/_git/DevWorkflowForTheOps<XX>
+git remote set-url origin https://<devOpsOrg>@dev.azure.com/<devOpsOrg>/CodingDojo/_git/DevWorkflowForTheOps<XX>
 git push -u origin --all
 ```
 
