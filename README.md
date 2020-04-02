@@ -77,6 +77,11 @@ git commit -m "Adding content to script"
 
 ![new repo](doc/newRepo2.png)
 
+**NOTE** : If get an error because you created the repository with a README, you can fix this by pulling first this change from origin with the command :
+```
+git pull origin master --allow-unrelated-histories
+```
+
 - Create a new **PAT** (Personal Access Token) with permissions : *Code* (Read & write) + *Packaging* (Read)
 
 ![new PAT](doc/newPAT1.png)
@@ -89,6 +94,11 @@ git commit -m "Adding content to script"
 git config --global credential.helper store
 git remote add origin https://[devOpsOrg]@dev.azure.com/[devOpsOrg]/[devOpsProject]/_git/init[XX]
 git push -u origin --all
+```
+
+**NOTE** : If you get an error because the origin was not correctly configured, you can fix this by reconfiguring the origin with the command :
+```
+git remote set-url origin [url]
 ```
 
 **NOTE** : The *"git push"* can be performed in VSCode using the *"sync"* button at the bottom of the VSCode window, which will both push and pull changes to and from origin :
@@ -113,7 +123,11 @@ Set-Location -Path DevWorkflowForTheOps
 ### 2. [GUI] Prepare Azure DevOps to upload your work to a new hosted Git repo (origin)
 
 - Create a new **EMPTY** (untick "Add a README") repo named *"DevWorkflowForTheOps[XX]"* in the dojo project https://dev.azure.com/[devOpsOrg]/_git/CodingDojo
-- Create a new **PAT** (Personal Access Token) with permissions : *Code* (Read & write) + *Packaging* (Read)
+
+**NOTE** : If get an error because you created the repository with a README, you can fix this by pulling first this change from origin with the command :
+```
+git pull origin master --allow-unrelated-histories
+```
 
 ### 3. [CMD] Change the origin to the new repo
 
