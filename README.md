@@ -43,9 +43,12 @@ New-Item -Name "new-script.ps1" -ItemType "file"
 git init
 ```
 
-**NOTE** : The *"git init"* can be performed in VSCode using the '+' button in the *source control* menu :
+**NOTE** : The *"git init"* can be performed in VSCode in the *source control* menu :
 
-![initialize repo](doc/init.png)
+|   |
+|---|
+| Click the '+' button |
+| ![initialize repo](doc/init.png) |
 
 ### 2. [CMD] Stage all changes and commit
 
@@ -53,9 +56,12 @@ git init
 git add -A
 git commit -m "initial commit"
 ```
-**NOTE** : The *"git add"* can be performed in VSCode using '+' button in the *"changes"* section of the *source control* menu:
+**NOTE** : The *"git add"* can be performed in VSCode in the *"changes"* section of the *source control* menu:
 
-![stage changes](doc/stage.png)
+|   |
+|---|
+| Click the '+' button |
+| ![stage changes](doc/stage.png) |
 
 ### 3. [CMD] Modify your script, stage the change and commit
 
@@ -65,17 +71,23 @@ git add new-script.ps1
 git commit -m "Adding content to script"
 ```
 
-**NOTE** : The *"git commit"* can be performed in VSCode using the *"message"* box and the *"check"* button at the top of the *source control* menu:
+**NOTE** : The *"git commit"* can be performed in VSCode at the top of the *source control* menu:
 
-![commit staged changes](doc/commit.png)
+|   |
+|---|
+| Comment the *"message"* box and click the *"check"* button |
+| ![commit staged changes](doc/commit.png) |
 
 ### 4. [GUI] Prepare Azure DevOps to upload your work to a new hosted Git repo (origin)
 
 - Create a new **EMPTY** (untick "Add a README") repo named *init[XX]* in the dojo project https://dev.azure.com/[devOpsOrg]/_git/CodingDojo
 
-![new repo](doc/newRepo1.png)
-
-![new repo](doc/newRepo2.png)
+|   |
+|---|
+| In the git repo list, select *"New repository"* |
+| ![new repo](doc/newRepo1.png) |
+| In the new menu, name your repo and unselect *"Add a README"* |
+| ![new repo](doc/newRepo2.png) |
 
 **NOTE** : If get an error because you created the repository with a README, you can fix this by pulling first this change from origin with the command :
 ```
@@ -84,9 +96,12 @@ git pull origin master --allow-unrelated-histories
 
 - Create a new **PAT** (Personal Access Token) with permissions : *Code* (Read & write) + *Packaging* (Read)
 
-![new PAT](doc/newPAT1.png)
-
-![new PAT](doc/newPAT2.png)
+|   |
+|---|
+| Select *"Personal Access Token"* in the top right hand profile menu |
+| ![new PAT](doc/newPAT1.png) |
+| Give the PAT a name and select the following permissions only |
+| ![new PAT](doc/newPAT2.png) |
 
 ### 5. [CMD] Configure Git to retain your credentials, add the newly created origin and push the content
 
@@ -101,9 +116,12 @@ git push -u origin --all
 git remote set-url origin [url]
 ```
 
-**NOTE** : The *"git push"* can be performed in VSCode using the *"sync"* button at the bottom of the VSCode window, which will both push and pull changes to and from origin :
+**NOTE** : The *"git push"* can be performed in VSCode at the bottom of the VSCode window, which will both push and pull changes to and from origin :
 
-![sync changes](doc/sync.png)
+|   |
+|---|
+| Click the *"sync"* button (cycle arrows) |
+| ![sync changes](doc/sync.png) |
 
 # Scenario 2 : Clone existing repo and build a pipeline in Azure DevOps
 
@@ -140,19 +158,27 @@ git push -u origin --all
 
 - Setup the build pipeline using *"Select an existing YAML file"* definition included in the repo (/pipeline/config-CI.yml)
 
-![new build](doc/newBuild1.png)
-
-![new build](doc/newBuild2.png)
-
-![new build](doc/newBuild3.png)
+|   |
+|---|
+| In the *"File"* section of your repo, click *"Set up build"* button |
+| ![new build](doc/newBuild1.png) |
+| Select third option *"Existing Azure pipelines YAML file"* |
+| ![new build](doc/newBuild2.png) |
+| Select path *"/pipeline/config-CI.yml"* |
+| ![new build](doc/newBuild3.png) |
 
 - Run the build & inspect the result
 
-![run build](doc/runBuild.png)
+|   |
+|---|
+| Click *"Run"* to instanciate the build |
+| ![run build](doc/runBuild.png) |
 
 **NOTE** : Their should be an issue on a JSON file syntax
 
-![build result](doc/buildResult.png)
+|   |
+|---|
+| ![build result](doc/buildResult.png) |
 
 ### 5. [CMD] Create a new branch to fix the issue
 
@@ -162,9 +188,12 @@ git checkout -b "fixJson"
 git push -u origin "fixJson"
 ```
 
-**NOTE** : The *"git checkout"* can be performed in VSCode using 'branch' button (by default set on master) at the bottom of the VSCode window :
+**NOTE** : The *"git checkout"* can be performed in VSCode using *"branch"* button (by default set on master) at the bottom of the VSCode window :
 
-![sync changes](doc/sync.png)
+|   |
+|---|
+| Click on the *"branch"* button to open branch selection |
+| ![sync changes](doc/sync.png) |
 
 ### 6. [CMD] Fix the issue and upload the 
 
@@ -180,15 +209,18 @@ git push -u origin --all
 
 - Restart a build from the new branch
 
-- Create a pull request from "fixJson" into "master"
+- Create and complete a pull request from "fixJson" into "master"
 
-![new PR](doc/newPR1.png)
-
-![new PR](doc/newPR2.png)
-
-- Inspect the various types of merge and the options and complete the *merge with no fast-forward* and *"delete branch"* option
-
-![complete PR](doc/completePR.png)
+|   |
+|---|
+| In the *"File"* section of your repo, click *"Create a pull request"* button |
+| ![new PR](doc/newPR1.png) |
+| In the new menu, verify the branches, the name and description and click *"Create"* |
+| ![new PR](doc/newPR2.png) |
+| In the new menu, click on *"complete"* |
+| ![new PR](doc/newPR3.png) |
+| Inspect the various types of merge and the options and complete the *merge with no fast-forward* and *"delete branch"* option |
+| ![complete PR](doc/completePR.png) |
 
 ### 8. [CMD] Update your local master after the merge
 
@@ -199,18 +231,28 @@ git pull
 
 ### 9. [GUI] Create and run a release in Azure DevOps
 
-- From your previous succesful *build* create a new release using no template (*Empty Job*)
+- From your previous succesful *build* create a new release using no template
 
-![new release](doc/newRelease1.png)
-
-![new release](doc/newRelease2.png)
+|   |
+|---|
+| Click a the *"release"* button |
+| ![new release](doc/newRelease1.png) |
+| Select the *"Empty Job"* buttion |
+| ![new release](doc/newRelease2.png) |
 
 - Edit the tasks of *stage 1* to add a *PowerShell* task
 
-**NOTE** : Replace the *"DevWorkflowForTheOps[XX]"* in the path and argument by your index
+|   |
+|---|
+| Click on the link (1 job, 0 task) bellow *"Stage 1"* |
+| ![new task](doc/newTask1.png) |
+| Add a task in the job running on agent and search the PowerShell task |
+| ![new task](doc/newTask2.png) |
+| Complete the task parameters according to your index |
+| ![new task](doc/newTask3.png) |
 
-![new task](doc/newTask1.png)
-
-![new task](doc/newTask2.png)
-
-![new task](doc/newTask3.png)
+**NOTE** : Lines to complete :
+```
+$(System.DefauItWorkingDirectory)/DevWorkflowForTheOps[XX]/LucBessonScriptGenerator/scripts/new-scenario.ps1
+-dictionaryPath "$(System.DefauItWorkingDirectory)/DevWorkflowForTheOps[XX]/LucBessonScriptGenerator/scripts/dictionary.json"
+```
